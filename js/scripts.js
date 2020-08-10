@@ -26,22 +26,21 @@ const insertDataTable = ({ data }) => {
 
   const newLine =
     "<tr>" +
-    `<td><a href=${newUrl}>${newUrl}</a>` +
-    `<td><img src="images/copy.png" width="23" height="23"> ` +
+    `<td><a id="shortened_link" href=${newUrl}>${newUrl}</a>` +
+    `<td><img src="images/copy.png" id="btn_copy" width="23" height="23"> ` +
     "</tr>";
   $("#url").val("");
   $(".table-primary > tbody > tr:last").after(newLine);
 
-  document.querySelector("img").addEventListener("click", onClick);
+  document.getElementById("btn_copy").addEventListener("click", btnCopyOnClick);
 };
 
-const onClick = (evt) => {
-  const link = document.querySelector("a");
+const btnCopyOnClick = () => {
+  const link = document.getElementById("shortened_link");
   const range = document.createRange();
   range.selectNode(link);
   const selection = window.getSelection();
   selection.removeAllRanges();
   selection.addRange(range);
-
-  const successful = document.execCommand("copy");
+  document.execCommand("copy");
 };
