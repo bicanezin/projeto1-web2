@@ -28,7 +28,7 @@ const insertDataTable = ({ data }) => {
     "<tr>" +
     `<td>${url}</td>` +
     `<td><a href=${newUrl}>${newUrl}</a>` +
-    `<td><img src="img/url.png" width="23" height="23"> ` +
+    `<td><img src="images/copy.png" width="23" height="23"> ` +
     "</tr>";
   $("#url").val("");
   $(".table-primary > tbody > tr:last").after(newLine);
