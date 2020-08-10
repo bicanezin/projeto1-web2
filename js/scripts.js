@@ -21,22 +21,25 @@ const shortenURL = () => {
 };
 
 const insertDataTable = ({ data }) => {
-  const { hashid, url } = data;
+  const { hashid } = data;
   newUrl = "https://rel.ink/" + hashid;
 
   const newLine =
     "<tr>" +
-    `<td>${url}</td>` +
     `<td><a href=${newUrl}>${newUrl}</a>` +
-    `<td><img src="images/copy-link.png" width="23" height="23"> ` +
+    `<td><img onclick="onClick('${hashid}')"  src="images/copy-link.png" width="23" height="23"> ` +
+    `<td><img onclick="urlDetails('${hashid}')" id="detailsImg" src="images/info.png" width="23" height="23"> 
+  ` +
     "</tr>";
   $("#url").val("");
   $(".table-primary > tbody > tr:last").after(newLine);
 
-  document.querySelector("img").addEventListener("click", onClick);
+  // document.querySelector("img").addEventListener("click", onClick(hashid));
+  // document.querySelector("#detailsImg").addEventListener("click", urlDetails);
 };
 
-const onClick = (evt) => {
+const onClick = (hashid) => {
+  console.log(document.querySelector("a"))
   const link = document.querySelector("a");
   const range = document.createRange();
   range.selectNode(link);
@@ -45,4 +48,32 @@ const onClick = (evt) => {
   selection.addRange(range);
 
   const successful = document.execCommand("copy");
+};
+
+const urlDetails = (hashid) => {
+  $.ajax({
+    method: "GET",
+    url: "https://rel.ink/api/links/" + hashid,
+
+    success: function (response) {
+      console.log(response.hashid);
+    },
+
+    error: function (error) {
+      console.log(error);
+    },
+  });
+
+  document.onclick = function () {
+    document.getElementById("tooltip").style.display = "none";
+  };
+
+  document.getElementById("tooltip").onclick = function (e) {
+    e.stopPropagation();
+  };
+
+  document.getElementById("detailsImg").onclick = function (e) {
+    document.getElementById("tooltip").style.display = "block";
+    e.stopPropagation();
+  };
 };
