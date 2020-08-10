@@ -26,7 +26,6 @@ const insertDataTable = ({ data }) => {
 
   const newLine =
     "<tr>" +
-    `<td>${url}</td>` +
     `<td><a href=${newUrl}>${newUrl}</a>` +
     `<td><img src="images/copy.png" width="23" height="23"> ` +
     "</tr>";

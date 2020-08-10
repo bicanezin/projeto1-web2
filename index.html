@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/scripts.js"></script>
     <title>UTFShortener</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <h1 class="title">UTFShortener</h1>
-        <h3 class="subtitle">O melhor encurtador de links da internet xD</h3>
-        <input type="url" class="txt-primary" id="url" placeholder="Entre com a URL..."><br><br>
-        <input type="button" class="btn-primary" onclick="shortenURL()" value="Encurtar"><br><br>
+      <h1 class="title">UTFShortener</h1>
+      <h3 class="subtitle">O melhor encurtador de links da internet xD</h3>
+      <input
+        type="url"
+        class="txt-primary"
+        id="url"
+        placeholder="Entre com a URL..."
+      /><br /><br />
+      <input
+        type="button"
+        class="btn-primary"
+        onclick="shortenURL()"
+        value="Encurtar"
+      /><br /><br />
 
-        <br><br><br>
+      <br /><br /><br />
 
-        
-        <div style="overflow-x:auto;"> <!-- Responsive table -->
-            <table class="table-primary"> 
-                <tr>
-                    <th style="width: 40%;">Link Original</th>
-                    <th style="width: 30%;">Link Curto</th>
-                    <th style="width: 20%;">Copiar link</th>
-                </tr>
-            </table>
-        </div>
+      <div style="overflow-x: auto;">
+        <!-- Responsive table -->
+        <table class="table-primary">
+          <tr>
+            <th style="width: 40%;">Link Curto</th>
+            <th style="width: 20%;">Copiar link</th>
+          </tr>
+        </table>
+      </div>
     </div>
 
     <!-- jQuery and Popper -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-</body>
-
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
