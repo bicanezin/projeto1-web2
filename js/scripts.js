@@ -53,8 +53,7 @@ const btnCopyOnClick = (hashId) => {
   const selection = window.getSelection();
   selection.removeAllRanges();
   selection.addRange(range);
-
-  const successful = document.execCommand("copy");
+  document.execCommand("copy");
 };
 
 const btnSeeMoreOnClick = (hashid) => {
