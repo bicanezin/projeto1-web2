@@ -27,7 +27,7 @@ const fillTableWithAllLinks = ({ data }) => {
   const newLine =
     "<tr>" +
     `<td><a id="${newUrl}" class="shortened_link" href=${newUrl} target="_blank">${newUrl}</a>` +
-    `<td><img onclick="btnCopyOnClick('${hashid}')" src="images/copy.png" id="btn_copy" width="23" height="23"> ` +
+    `<td><img onclick="btnCopyOnClick('${hashid}')" src="images/copy-link.png" id="btn_copy" width="23" height="23"> ` +
     `<td><img onclick="btnSeeMoreOnClick('${hashid}')" src="images/see_more.png" id="btn_see_more" width="23" height="23"> ` +
     "</tr>";
   $("#url").val("");
