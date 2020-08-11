@@ -44,6 +44,17 @@ const fillTableWithAllLinks = ({ data }) => {
   });
 };
 
+const fillTableWithLinkDetails = ({ data }) => {
+  const newLine =
+    "<tr>" +
+    `<td><a id="original_link" href=${data.url} target="_blank">${data.url}</a>` +
+    `<td><a>${data.hashid}</a>` +
+    `<td><a>${data.created_at}</a>` +
+    "</tr>";
+  $(".table-details > tbody > tr:last").empty();
+  $(".table-details > tbody > tr:last").after(newLine);
+};
+
 const btnCopyOnClick = () => {
   const link = document.getElementById("shortened_link");
   const range = document.createRange();
@@ -61,7 +72,7 @@ const btnSeeMoreOnClick = ({ hashid }) => {
 
     success: function (response) {
       console.log("[OK] Detalhes do link obtidos com sucesso");
-      fillLinkDetailsTable({ data: response });
+      fillTableWithLinkDetails({ data: response });
     },
 
     error: function (error) {
