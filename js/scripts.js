@@ -36,7 +36,7 @@ const fillTableWithAllLinks = ({ data }) => {
   const hashID = newUrl.split('/')[3];
 
   $("#btn_copy").click(() => {
-    btnCopyOnClick();
+    btnCopyOnClick({ element: 'shortened_link' });
   });
 
   $("#btn_see_more").click(() => {
@@ -48,15 +48,19 @@ const fillTableWithLinkDetails = ({ data }) => {
   const newLine =
     "<tr>" +
     `<td><a id="original_link" href=${data.url} target="_blank">${data.url}</a>` +
-    `<td><a>${data.hashid}</a>` +
-    `<td><a>${data.created_at}</a>` +
+    `<td><img src="images/copy.png" id="btn_copy" width="23" height="23"> ` +
+    `<td><a>${new Date(data.created_at).toLocaleDateString()}</a>` +
     "</tr>";
   $(".table-details > tbody > tr:last").empty();
   $(".table-details > tbody > tr:last").after(newLine);
+
+  $("#btn_copy").click(() => {
+    btnCopyOnClick({ element: 'original_link' });
+  });
 };
 
-const btnCopyOnClick = () => {
-  const link = document.getElementById("shortened_link");
+const btnCopyOnClick = ({ element }) => {
+  const link = document.getElementById(element);
   const range = document.createRange();
   range.selectNode(link);
   const selection = window.getSelection();
