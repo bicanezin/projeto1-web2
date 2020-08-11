@@ -10,7 +10,7 @@ const shortenURL = () => {
 
     success: function (response) {
       console.log("[OK] Encurtou o link");
-      insertDataTable({ data: response });
+      fillTableWithAllLinks({ data: response });
     },
 
     error: function (error) {
@@ -20,9 +20,9 @@ const shortenURL = () => {
   });
 };
 
-const insertDataTable = ({ data }) => {
-  const { hashid, url } = data;
-  newUrl = "https://rel.ink/" + hashid;
+const fillTableWithAllLinks = ({ data }) => {
+  const { hashid } = data;
+  newUrl = `https://rel.ink/${hashid}`;
 
   const newLine =
     "<tr>" +
@@ -33,7 +33,15 @@ const insertDataTable = ({ data }) => {
   $("#url").val("");
   $(".table-primary > tbody > tr:last").after(newLine);
 
-  document.getElementById("btn_copy").addEventListener("click", btnCopyOnClick);
+  const hashID = newUrl.split('/')[3];
+
+  $("#btn_copy").click(() => {
+    btnCopyOnClick();
+  });
+
+  $("#btn_see_more").click(() => {
+    btnSeeMoreOnClick({ hashid: hashID });
+  });
 };
 
 const btnCopyOnClick = () => {
