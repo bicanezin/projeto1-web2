@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-  text-align: center; 
+  text-align: center;
   height: 100%;
   width: 100%;
   min-height: 100%;
@@ -36,7 +36,7 @@ body {
 .btn-primary {
   width: 20%;
   height: 50px;
-  background: #FADA5E;
+  background: #fada5e;
   color: #091636;
   font-weight: bold;
   border: 2px solid #091636;
@@ -73,4 +73,9 @@ th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+#btn_see_more,
+#btn_copy {
+  cursor: pointer;
 }
