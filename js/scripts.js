@@ -45,3 +45,20 @@ const btnCopyOnClick = () => {
   selection.addRange(range);
   document.execCommand("copy");
 };
+
+const btnSeeMoreOnClick = ({ hashid }) => {
+  $.ajax({
+    method: "GET",
+    url: `https://rel.ink/api/links/${hashid}`,
+
+    success: function (response) {
+      console.log("[OK] Detalhes do link obtidos com sucesso");
+      fillLinkDetailsTable({ data: response });
+    },
+
+    error: function (error) {
+      console.log("[ERRO] Erro ao obter os detalhes do link");
+      console.log(error);
+    },
+  });
+};
